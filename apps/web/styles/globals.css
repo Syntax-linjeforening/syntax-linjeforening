@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
+
+/* workaround for preventing default styling input fields when autofilled */
+input:-webkit-autofill, input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+body {
+  @apply text-gray-600 dark:text-white bg-black;
+}
