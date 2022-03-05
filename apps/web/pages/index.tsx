@@ -6,62 +6,61 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { useGetPostsQuery } from '../app/services/posts';
 import SyntaxLogo from '../public/syntax-logo-white.png';
 
-// TODO: Remove comments and static "temporary" page
-// const HomePage = () => {
-//   const { data, isLoading } = useGetPostsQuery({
-//     take: 3
-//   });
+const HomePage = () => {
+  const { data, isLoading } = useGetPostsQuery({
+    take: 3
+  });
 
-//   return (
-//     <div className="flex flex-col h-full items-center justify-center space-x-2">
-//       {isLoading && <>
-//         Loading posts...
-//       </>}
-//       {!isLoading && <>
-//         <h2 className='font-bold font-ropa tracking-wider text-2xl border-b border-slate-400 dark:border-zinc-600 mb-2 self-start ml-32'>
-//           Nytt elns
-//         </h2>
-//         <div className='grid grid-cols-3 gap-2'>
-//           {data.posts.map((post, idx) => (
-//             <div key={idx} className='bg-gray-200 hover:bg-gray-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 transition-all p-2 rounded-lg cursor-pointer shadow-lg w-96'>
-//               <Link href={'/nyheter/' + post.slug}>
-//                 <div className='flex flex-row items-center space-x-2 '>
-//                   <div className='flex items-center justify-center aspect-square w-24 bg-slate-300 dark:bg-zinc-700 rounded-md flex-shrink-0 text-center'>
-//                     a real image probably
-//                   </div>
-//                   <div className='flex flex-col overflow-hidden'>
-//                     <h1 className='font-semibold truncate'>
-//                       {post.title}
-//                     </h1>
-//                     <div className='flex-1'>
-//                       <p>
-//                         brief goes here
-//                       </p>
-//                       <div className="inline-flex items-center space-x-1 text-gray-600 dark:text-gray-300">
-//                         <FaUser className='' />
-//                         <p>
-//                           {post.author.name}
-//                         </p>
-//                         <FaCalendar />
-//                         <p>
-//                           {new Date(post.published_at).toLocaleDateString('no-NO')}
-//                         </p>
-//                     </div>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </Link>
-//             </div>
-//           ))}
-//         </div>
-//       </>}
-//     </div>
-//   )
-// }
+  return (
+    <div className="flex flex-col h-full items-center justify-center space-x-2">
+      {isLoading && <>
+        Loading posts...
+      </>}
+      {!isLoading && <>
+        <h2 className='font-bold font-ropa tracking-wider text-2xl border-b border-slate-400 dark:border-zinc-600 mb-2 self-start ml-32'>
+          Nytt elns
+        </h2>
+        <div className='grid grid-cols-3 gap-2'>
+          {data.posts.map((post, idx) => (
+            <div key={idx} className='bg-gray-200 hover:bg-gray-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 transition-all p-2 rounded-lg cursor-pointer shadow-lg w-96'>
+              <Link href={'/nyheter/' + post.slug}>
+                <div className='flex flex-row items-center space-x-2 '>
+                  <div className='flex items-center justify-center aspect-square w-24 bg-slate-300 dark:bg-zinc-700 rounded-md flex-shrink-0 text-center'>
+                    a real image probably
+                  </div>
+                  <div className='flex flex-col overflow-hidden'>
+                    <h1 className='font-semibold truncate'>
+                      {post.title}
+                    </h1>
+                    <div className='flex-1'>
+                      <p>
+                        brief goes here
+                      </p>
+                      <div className="inline-flex items-center space-x-1 text-gray-600 dark:text-gray-300">
+                        <FaUser className='' />
+                        <p>
+                          {post.author.name}
+                        </p>
+                        <FaCalendar />
+                        <p>
+                          {new Date(post.published_at).toLocaleDateString('no-NO')}
+                        </p>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </>}
+    </div>
+  )
+}
 
 const HomePageStatic = () => {
   return (
-    <main className='h-screen w-screen flex flex-col items-center justify-center text-white p-2'>
+    <main className='h-screen w-screen bg-black flex flex-col items-center justify-center text-white p-2'>
       <Head>
         <title>Syntax linjeforening</title>
       </Head>
@@ -110,4 +109,4 @@ const HomePageStatic = () => {
   )
 }
 
-export default HomePageStatic;
+export default HomePage;
