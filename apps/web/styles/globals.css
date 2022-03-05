@@ -10,5 +10,5 @@ input:-webkit-autofill, input:-webkit-autofill:focus {
 }
 
 body {
-  @apply text-gray-600 dark:text-white bg-black;
+  @apply text-gray-600 dark:text-white bg-slate-200 dark:bg-black;
 }
